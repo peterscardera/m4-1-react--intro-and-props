@@ -1,15 +1,3 @@
-import mdxTheme from '../../theme';
-export const theme = mdxTheme;
-
-import npmTrends from './assets/npm-trends.png';
-import compiled from './assets/compiled.png';
-import hierarchy from './assets/intro-hierarchy.png';
-import todoMVC from './assets/todomvc.png';
-import blog from './assets/blog.png';
-import bankApp from './assets/bank-app.png';
-
-import Spacer from '../../components/Spacer';
-
 # 4.1.1 Intro to React
 
 ---
@@ -26,7 +14,7 @@ An _open-source project_ built and maintained by **facebook**.
 
 ### Super popular!
 
-<img src={npmTrends} style={{ maxWidth: '60vw' }} />
+<img src='./assets/npm-trends.png' style='max-width:60vw;' />
 
 ---
 
@@ -76,7 +64,7 @@ render(
 
 # Compiling
 
-<img src={compiled} />
+<img src='./assets/compiled.png' />
 
 ---
 
@@ -87,7 +75,7 @@ render(
 
 ---
 
-### Compiling JSX to JSX
+### Compiling JSX to JS
 
 ```js
 // Before
@@ -107,7 +95,7 @@ function GoButton(props) {
       className: 'btn',
       onClick: props.handleClick,
     },
-    'Go! ->'
+    'Go!'
   );
 }
 ```
@@ -145,7 +133,7 @@ JSX:
 
 # Squigglies { }
 
-A "slot" we can write Javascript expressions in.
+A _slot_ in which we can write JavaScript expressions.
 
 ---
 
@@ -163,8 +151,7 @@ const asleepStudents = 0;
 
 render(
   <div>
-    There are {awakeStudents + asleepStudents}
-    students in the class.
+    There are {awakeStudents + asleepStudents} students in the class.
   </div>
 );
 ```
@@ -173,6 +160,8 @@ render(
 
 ```jsx
 <li className={isOnline && 'green'}>{user.username}</li>
+
+// ⚠️ New notation! another way to use of &&.
 ```
 
 ---
@@ -309,7 +298,7 @@ ReactDOM.render(
 </html>
 ```
 
-Everything else gets created by React.
+**Everything** else gets created by React.
 
 ---
 
@@ -352,24 +341,28 @@ Now it fits on the screen:
 
 ---
 
-<img src={hierarchy} style={{ maxHeight: '70vh', maxWidth: '70vw' }} />
+<img src='./assets/lego.png' style='max-height:90vh;max-width:90vw' />
+
+---
+
+<img src='./assets/intro-hierarchy.png' style='max-height:80vh;max-width:80vw' />
 
 ---
 
 ### Exercise: Break an image into components
 
----
-
-<img src={todoMVC} style={{ maxHeight: '100vh', maxWidth: '100vw' }} />
+_to draw along with me, open the images with [JS Paint](https://jspaint.app)_
 
 ---
 
-<img src={blog} style={{ maxHeight: '100vh', maxWidth: '100vw' }} />
+<img src='./assets/todomvc.png' style='max-height:90vh;max-width:90vw' />
 
 ---
 
-<img src={bankApp} style={{ maxHeight: '100vh', maxWidth: '100vw' }} />
+<img src='./assets/blog.png' style='max-height:90vh;max-width:90vw' />
 
 ---
 
-[Next lecture: Props](../lecture-2-props)
+<img src='./assets/bank-app.png' style='max-height:90vh;max-width:90vw' />
+
+---

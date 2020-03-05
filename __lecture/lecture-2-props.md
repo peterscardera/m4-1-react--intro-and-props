@@ -1,8 +1,3 @@
-import mdxTheme from '../../theme';
-export const theme = mdxTheme;
-
-import spotifyArtists from './assets/spotify-artists.png';
-
 # 4.1.2 Props
 
 - The same component can work with **different data**
@@ -14,7 +9,7 @@ import spotifyArtists from './assets/spotify-artists.png';
 
 Here's part of the Spotify desktop app:
 
-<img src={spotifyArtists} style={{ maxHeight: '100vh', maxWidth: '100vw' }} />
+<img src='./assets/spotify-artists.png' style='max-height:100vh;max-width:100vw' />
 
 ---
 
@@ -89,53 +84,6 @@ const UserProfile = ({ username, email, bio }) => {
 
 ---
 
-### Children prop
-
-- It's special
-- Used to "slot in" content
-
----
-
-A "Media" component:
-
-```jsx
-const Media = ({ caption, children }) => {
-  return (
-    <div>
-      {children}
-      <p>{caption}</p>
-    </div>
-  );
-};
-```
-
----
-
-Children can be provided like this:
-
-```jsx
-<Media
-  caption="Leggy boi"
-  children={
-    <img src="spider.gif" />
-  }
-/>
-```
-
-Is there a better way?
-
-<!--
-
-The better way:
-
-<Media caption="Leggy boi">
-  <img src="spider.gif" />
-</Media>
-
--->
-
----
-
 # Exercise
 
 Make the components reusable by using props.
@@ -162,18 +110,19 @@ function Tweet(props) {
   return (
     <div>
       <Avatar src="/images/bunny.jpg" />
-
       <div>
-        <span className="user-name">Mr. Bunny</span>
-        <span className="handle">@mr-bunny</span>
-        <span className="date">Oct 29th</span>
-
-        <div>Alfalfa is the best food don't @ me</div>
-
-        <button>Reply</button>
-        <button>Retweet</button>
-        <button>Like</button>
-        <button>Share</button>
+        <p>
+          <span className="user-name">Mr. Bunny</span>
+          <span className="handle">@mr-bunny</span>
+          <span className="date">Oct 29th</span>
+        </p>
+        <p>Alfalfa is the best food don't @ me</p>
+        <div>
+          <button>Reply</button>
+          <button>Retweet</button>
+          <button>Like</button>
+          <button>Share</button>
+        </div>
       </div>
     </div>
   );
@@ -344,5 +293,3 @@ const pizzaToppings = [
 Hint: You'll need `filter` as well as `map`
 
 ---
-
-[Next lecture: Modules](../lecture-3-modules)

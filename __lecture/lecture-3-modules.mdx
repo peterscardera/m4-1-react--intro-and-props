@@ -1,6 +1,3 @@
-import mdxTheme from '../../theme';
-export const theme = mdxTheme;
-
 # 4.1.3 Modules
 
 - in Node: `module.exports` and `require` to package
@@ -12,15 +9,19 @@ export const theme = mdxTheme;
 ### Default exports
 
 ```js
+// create a Button Component
 function Button(props) {
   ✂️
 }
 
+// make it _importable_ from other files_
 export default Button;
 ```
 
 ```js
+// _Import_ it into the file where you want to use it.
 import Button from '../Button';
+// This replaces the "require()" syntax used in Node
 ```
 
 ---
@@ -60,14 +61,14 @@ import './App.css'
 
 The official package manager is NPM (Node Package Manager).
 
-We use Yarn, which works mostly the same way, but is a bit faster/better.
+We use Yarn, which works mostly the same way, but is a bit faster/_better_. 🤔
 
 ---
 
 # Package.json Scripts
 
 - Run a local development server with `yarn start`
-- This spins up an Express server that rebuilds your app on every change.
+- This spins up an Express server that rebuilds your app on every change. 😮
 
 ---
 
