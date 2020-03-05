@@ -1,20 +1,32 @@
-# Workshop: iMessage
-
-Today's workshop is to recreate the "group chat" UI from Apple's iMessage app:
-
-![iMessage Seinfeld group chat](./assets/seinfeld.gif)
-
-_It won't be functional_ - we won't be able to send or receive messages. This is purely a challenge to create the visuals, using React.js.
+# Module 4.1 Intro to React and Props
 
 ## Setup
 
-See SETUP.md
+This workshop uses **Create React App**, a project from Facebook designed to make it easy to get started building a React application.
+
+It comes with a full build system, and very little boilerplate. We will learn more about this system in the future, but for now we'll focus on using it, not understanding how it works.
+
+Open a terminal, and `cd` into the same directory that this README lives in. Then run:
+
+```bash
+yarn install
+```
+
+```bash
+yarn start
+```
+
+The first command installs the third-party dependencies (like React), and the second command starts a development server.
+
+It works similarly to `nodemon` - when you save a file, it should auto-restart, and you can refresh your page to see the latest code.
 
 ## Understanding the files
 
 The directory structure of this project is on the left, and looks like:
 
 ```
+├── __lecture
+├── __solution
 ├── public
 │   ├── assets
 │   │   └── [images]
@@ -60,7 +72,7 @@ To bootstrap this workshop, we've created several JS and CSS files:
 
 Our initial state gives us a loose structure, but very little in the way of UI:
 
-![blank page with subtle gray header](./assets/initial-state.png)
+![blank page with subtle gray header](./__lecture/assets/initial-state.png)
 
 Your job will be to build this out, using the structure provided!
 
@@ -84,7 +96,7 @@ We're rendering the `App` component, and we're setting its props to:
 }
 ```
 
-This data is defined in `src/data.js`. It's some fake data we can use to populate our app, a reimagined conversation from hit 90s sitcom, Seinfeld.
+This data is defined in `src/data.js`. It's some fake data we can use to populate our app, a reimagined conversation from the 90s sitcom, [Seinfeld](https://www.imdb.com/title/tt0098904/).
 
 Our `App` component, in `src/components/App.js`, renders the following:
 
@@ -130,7 +142,7 @@ function App(props) {
 
 When we open the developer tools, we can see our console being logged:
 
-![Logged props in developer console](./assets/app-console-log.png)
+![Logged props in developer console](./__lecture/assets/app-console-log.png)
 
 We want to use the `ChatStream` component to render all the messages, and it looks like the data we'll need is `props.conversation.messages`. Let's thread this through:
 
@@ -193,7 +205,7 @@ return (
 
 If we do this, we should get something that looks like this:
 
-![raw messages being mapped](./assets/raw-message-bodies.png)
+![raw messages being mapped](./__lecture/assets/raw-message-bodies.png)
 
 Not pretty, but we're off to a great start! We're funneling the data we need through our application, and using it in the right place!
 
@@ -267,7 +279,7 @@ After styling, you should wind up with something that looks like this:
 
 How you structure this exactly is up to you, but you should wind up with something similar to this image:
 
-![message list with some styling](./assets/exercise-2-result.png)
+![message list with some styling](./__lecture/assets/exercise-2-result.png)
 
 It's up to you how to structure the HTML content of `ChatMessage`, which CSS properties to use.
 
@@ -275,7 +287,7 @@ It's up to you how to structure the HTML content of `ChatMessage`, which CSS pro
 
 In iMessage, the messages that _you_ send don't look the same as messages that others send:
 
-![real iMessage screenshot](./assets/real-imessage-screenshot.jpg)
+![real iMessage screenshot](./__lecture/assets/real-imessage-screenshot.jpg)
 
 Specifically, these things are different:
 
@@ -413,7 +425,7 @@ These components don't exist yet, so we need to create them. Feel free to create
 
 The rest of this problem is left as an exercise for you to solve. You should wind up with UI that looks approximately like this:
 
-![sent/received styles](./assets/exercise-3-result.png)
+![sent/received styles](./__lecture/assets/exercise-3-result.png)
 
 ---
 
@@ -423,7 +435,7 @@ The rest of this problem is left as an exercise for you to solve. You should win
 
 In iMessage, the chat bubbles have little tips, to make them look like speech bubbles in a comic book:
 
-![sent/received styles](./assets/exercise-3-with-tips.png)
+![sent/received styles](./__lecture/assets/exercise-3-with-tips.png)
 
 Two images are made available in the `public/assets` folder
 
@@ -436,7 +448,7 @@ Use an `<img>` tag to add these to the ChatMessage components. _TIP_: the `src` 
 
 In the header, it would be great to show the chat participants, _not including_ the current user. Given that the current user is Elaine, your header should look like this:
 
-![header with George/Jerry avatars](./assets/stretch-header.png)
+![header with George/Jerry avatars](./__lecture/assets/stretch-header.png)
 
 You'll need to use `filter` to get the chat participants who _aren't_ the current user, and `map` to render their faces along the top.
 
@@ -448,7 +460,7 @@ To round out the UI, we should add a text input along the bottom. This input wil
 
 The most interesting part of the footer is that it blurs the items before it; notice how it glows blue when a sent message passes behind it:
 
-![blurry footer](./assets/stretch-blurry-footer.gif)
+![blurry footer](./__lecture/assets/stretch-blurry-footer.gif)
 
 (The GIF compression makes this look like a hot mess; hopefully, your solution will look nicer!)
 
@@ -468,11 +480,11 @@ export default {
 
 Now, the entire conversation updates to show things from George's point of view:
 
-![as George](./assets/stretch-different-user.png)
+![as George](./__lecture/assets/stretch-different-user.png)
 
 Update the app to render two copies of `<App>`, side-by-side. Give each copy a different `currentUser` prop, so that you can show two conversations at once:
 
-![side-by-side](./assets/stretch-side-by-side.png)
+![side-by-side](./__lecture/assets/stretch-side-by-side.png)
 
 ---
 
@@ -480,7 +492,7 @@ Update the app to render two copies of `<App>`, side-by-side. Give each copy a d
 
 There are many different chat applications. Here's a screenshot of Google Hangouts chat:
 
-![Hangouts chat](./assets/hangouts.jpg)
+![Hangouts chat](./__lecture/assets/hangouts.jpg)
 
 Your mission, should you choose to accept it: take the lessons you've learned from creating iMessage, and use them to recreate this screenshot of Hangouts.
 
