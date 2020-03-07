@@ -1,0 +1,42 @@
+
+.chat-message-sent{
+    display: flex ;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    color: #FFF;
+    position: relative;
+}
+
+.chat-message-received{
+    display: flex ;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    position: relative;
+}
+
+.text{
+    background-color: lightgray;
+    border-radius: 8px;
+}
+
+img{
+    border-radius: 50%;
+    height: 30px;
+}
+.img-sent {
+    position: absolute;
+    top: 30px;
+    right: -9px;
+}
+
+.img-received {
+    position: absolute;
+    left: -40px;
+    top: 30px;
+}
+
+.container {
+    color:  grey;
+    font-size: .7rem;
+    margin: 0 0 5px 10px;
+}

@@ -147,7 +147,7 @@ let index = 0;
 
 ```jsx live=true
 const awakeStudents = 10;
-const asleepStudents = 0;
+const asleepStudents = 3;
 
 render(
   <div>
@@ -159,7 +159,11 @@ render(
 ---
 
 ```jsx
+if online is true and the calss is green
+
 <li className={isOnline && 'green'}>{user.username}</li>
+
+if isOnline must be true before
 
 // ⚠️ New notation! another way to use of &&.
 ```
@@ -180,6 +184,14 @@ let age = 10;
 </div>;
 ```
 
+
+
+<div class= "wrapper">
+<img src="'/images/cake.jpg'">; >
+<p> Happy 10th birthday! </p>
+</div>
+
+
 ---
 
 Convert this one too:
@@ -197,6 +209,15 @@ let agreeToTerms = false;
   )}
 </div>;
 ```
+HTML
+//because its false there is no div ITS Not in the DOM
+
+<div>
+  <label for= "terms-of-service">
+    <input type="checkbox" id="terms-of-service"/>I agree to the terms
+  </label>
+
+</div>
 
 ---
 
@@ -262,7 +283,53 @@ const pets = [
     </li>
   </ul>
 </div>;
-```
+``
+//HTML BELOW
+
+<div>
+  <h1 class="title">My pets:</h1>
+  <ul>
+    <li>
+      <h3>'Bark Obama'</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Age</th>
+            <th>Species</th>
+            <th>Breed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3</td>
+            <td>Dog</td>
+            <td>Labradoodle</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+
+    <li>
+      <h3>Chairman Meow</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Age</th>
+            <th>Species</th>
+            <th>Breed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>8</td>
+            <td>cat</td>
+            <td>Ragdoll</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+</div>;
 
 ---
 
@@ -297,7 +364,7 @@ ReactDOM.render(
   <body>
 </html>
 ```
-
+noscript is what displays when JS has been disabled
 **Everything** else gets created by React.
 
 ---

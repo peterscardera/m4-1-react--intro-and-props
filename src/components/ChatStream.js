@@ -1,6 +1,6 @@
-import React from 'react';
-
-import './ChatStream.css';
+import React from "react";
+import ChatMessage from "./ChatMessage.js";
+import "./ChatStream.css";
 
 // The current user's messages should have:
 // - a text color of #FFF
@@ -11,7 +11,34 @@ import './ChatStream.css';
 // - a background color of #e9e9eb
 
 function ChatStream(props) {
-  return <section className="chat-stream">{/* Your code here! */}</section>;
+  
+  let convos = props.msg.messages;
+
+  return (
+    <section className="chat-stream">
+      {convos.map(message => {
+
+        let messageType;
+        if (message.user === props.current) {
+          messageType = "sent";
+        } else {
+          messageType = "received";
+        }
+        return (
+          <ChatMessage
+            message={message.body}
+            user={message.user.username}
+            avatar={message.user.avatar}
+            messageType={messageType}
+          />
+          
+        );
+        
+      })}
+    </section>
+  
+  );
 }
+
 
 export default ChatStream;

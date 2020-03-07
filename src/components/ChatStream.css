@@ -9,4 +9,8 @@
 */
 .chat-stream {
   flex: 1;
+  font-family: Helvetica Neue;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20%;
 }

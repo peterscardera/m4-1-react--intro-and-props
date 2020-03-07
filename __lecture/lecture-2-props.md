@@ -62,6 +62,8 @@ We can use it like this:
   numOfSongs={1}
 />
 
+
+** NUmbers must be passed in via {}
 ```
 
 ---
@@ -89,34 +91,37 @@ const UserProfile = ({ username, email, bio }) => {
 Make the components reusable by using props.
 
 ```jsx
-function VideoPlayer(props) {
+function VideoPlayer(source: src, width: width, height:height) {
   return (
     <div>
       <video
-        src="http://youtube.com/some-video"
-        width={480}
-        height={300}
+        src= {source}
+        width={width}
+        height={height}
       />
-      <p>Cat playing the piano!!</p>
+      <p>{descr}</p>
     </div>
   );
 }
+
+
+
 ```
 
 ---
 
 ```jsx
-function Tweet(props) {
+function Tweet(src:src,user:user, handler:handler, date:date,tweet: tweet ) {
   return (
     <div>
       <Avatar src="/images/bunny.jpg" />
       <div>
         <p>
-          <span className="user-name">Mr. Bunny</span>
-          <span className="handle">@mr-bunny</span>
-          <span className="date">Oct 29th</span>
+          <span className="user-name">{user}</span>
+          <span className="handle">{handler"</span>
+          <span className="date">{date}</span>
         </p>
-        <p>Alfalfa is the best food don't @ me</p>
+        <p>{tweet}</p>
         <div>
           <button>Reply</button>
           <button>Retweet</button>
@@ -135,10 +140,10 @@ function Tweet(props) {
 function Header(props) {
   return (
     <header>
-      <h1>My great website</h1>
+      <h1>{props.title}</h1>
 
       <nav>
-        <a href="/about">About</a>
+        <a href="{props.nav.first.url}/about">{props.nav.first.url}</a>
         <a href="/contact">Contact</a>
       </nav>
     </header>
@@ -200,6 +205,19 @@ function StoreItem(props) {
     </div>
   );
 }
+
+OR 
+
+
+function StoreItem(id:id, price:price, name:name) {
+  return (
+    <div className="id">
+      <h3>{name}</h3>
+      <p>Price: ${price}</p>
+      <button>Add to cart</button>
+    </div>
+  );
+}
 ```
 
 ---
@@ -213,10 +231,10 @@ const storeItems = [
   { id: 'c', price: 44.99, name: 'Top Hat' },
 ];
 
-function App(props) {
+function App(props) {//not using this props arg at the moment
   return (
     <div>
-      {storeItems.map(item => (
+      {storeItems.map(item => ( 
         <StoreItem name={item.name} price={item.price} />
       ))}
     </div>
@@ -241,6 +259,17 @@ const pets = [
   <h1 className="title">My pets:</h1>
   <ul>
     <PetInfo
+
+    pets.map(item => {
+      
+      <petInfo 
+      name = {item.name}
+      age = {item.age }
+      species = {item.species }
+      breed = {item.breed}
+      />
+    });
+
       name={pets[0].name}
       age={pets[0].age}
       species={pets[0].species}
@@ -258,21 +287,6 @@ const pets = [
 
 ---
 
-```jsx
-const forecasts = [4, -3, 1, 9, 4, 2, -6];
-
-<div>
-  <h1>Weather forecast for the week ahead:</h1>
-
-  <Day>4 degrees</Day>
-  <Day>-3 degrees</Day>
-  <Day>1 degrees</Day>
-  <Day>9 degrees</Day>
-  <Day>4 degrees</Day>
-  <Day>2 degrees</Day>
-  <Day>-6 degrees</Day>
-</div>;
-```
 
 ---
 
@@ -285,8 +299,10 @@ const pizzaToppings = [
 ]
 
 <Pizza>
-  <Topping name="green pepper" />
-  <Topping name="broccoli" />
+{pizzaToppings.filter(item =>  item.isVegetarian) //if true
+.map (topping => <Topping name = {topping.name} />)
+
+}
 </Pizza>
 ```
 
